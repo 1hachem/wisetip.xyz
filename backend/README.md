@@ -7,7 +7,7 @@
 
 ## Setup
 
-- create a new `.env` as showed in `.env.example`, to get your APIs keys see [openai](https://platform.openai.com/account/api-keys) and [youtube](https://console.cloud.google.com/apis/credentials).
+- create a new `.env` as showed in `.env.example`, to get you APIs keys see [openai](https://platform.openai.com/account/api-keys) and [youtube](https://console.cloud.google.com/apis/credentials).
 
 ```
 OPENAI_API_KEY=sk-..

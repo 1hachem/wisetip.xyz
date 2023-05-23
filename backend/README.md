@@ -1,4 +1,4 @@
-# buyer-advice backend
+# wisetip backend
 
 - Collects top k videos on youtube for how to choose the best [any thing].
 - Transcribe videos using whisper.

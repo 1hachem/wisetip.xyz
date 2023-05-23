@@ -1,0 +1,12 @@
+# env 
+.venv 
+.env
+
+#pip
+*.egg-info
+
+# config
+.vscode
+
+# cache
+__pycache__/

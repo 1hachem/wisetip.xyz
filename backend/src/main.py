@@ -1,13 +1,7 @@
-import os
-import uuid
-
-import whisper
-from pytube import YouTube
-
 from src.lm import inference
 from src.search import youtube_search
-
-whisper_model = whisper.load_model("tiny")
+from src.transcribe import YoutubeTranscriber
+from src.utils.utils import save_text_file
 
 
 def search(product: str, max_results: int = 5) -> list[str]:
@@ -16,40 +10,18 @@ def search(product: str, max_results: int = 5) -> list[str]:
     return top_videos
 
 
-def download_videos(product: str, top_videos: list[str]) -> list[str]:
-    dir = "output/" + product.replace(" ", "_")
-    os.mkdir(dir)
-    audio_files = []
-    for video in top_videos:
-        filename = str(uuid.uuid1()) + ".mp4"
-        video_path = (
-            YouTube(video)
-            .streams.filter(only_audio=True)
-            .first()
-            .download(filename=f"{dir}/{filename}")
-        )
-        audio_files.append(video_path)
-
-    return audio_files
-
-
-def transcribe(audio_files: list[str]) -> str:
-    transcriptions = []
-    for audio_file in audio_files:
-        transcription = whisper_model.transcribe(audio_file)
-        transcriptions.append(transcription["text"])
-    return "\n\n".join(transcriptions)
-
-
 if __name__ == "__main__":
-    product = "sleeping bag"
+    product = "studying desk"
     print("searching ...")
-    top_videos = search(product, max_results=2)
-    print("Downloading videos ...")
-    audio_files = download_videos(product, top_videos)
+    top_videos = search(product, max_results=10)
     print("Transcribing videos ...")
-    transcriptions = transcribe(audio_files)
+    transcriber = YoutubeTranscriber()
+
+    transcriptions = "\n".join(
+        [transcriber.transcribe(top_video) for top_video in top_videos]
+    )
+    save_text_file(transcriptions, f"output/{product.replace(' ', '_')}.txt")
     print("Generating summary ...")
     summary = inference(product, transcriptions)
-    print("buyer advice:")
+    print("wise tips :")
     print(summary)

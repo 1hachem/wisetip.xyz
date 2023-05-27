@@ -5,38 +5,26 @@ import openai
 
 from langchain.prompts import PromptTemplate
 from langchain.chains.summarize import load_summarize_chain
-from langchain.text_splitter import TokenTextSplitter
 from langchain.docstore.document import Document
 
 from langchain.llms import OpenAI
 
-dotenv.load_dotenv()
+from src.utils.utils import text_split, parse
 
+dotenv.load_dotenv()
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 llm = OpenAI(model_name="text-davinci-003")
 
 
-def parse(text: str) -> list[str]:
-    output = text.replace("\n", "")
-    output = output.split("*")
-    return output[1:]
-
-
-def text_split(text: str, chunk_size: int = 1000, chunk_overlap: int = 20):
-    text_splitter = TokenTextSplitter(
-        chunk_size=chunk_size, chunk_overlap=chunk_overlap
-    )
-    return text_splitter.split_text(text)
-
-
 def build_chain():
     prompt_template = """
-    You are helpful assistant who takes in long transcripts text
-    of youtube videos, summarize it to exactly what the user to know to buy the right {product}. 
-    The summary is in the format of bullet points of the main pieces of advice in the transcript. 
-    start each point with a star *.
-    text : {text}
+    You are helpful assistant who takes in long transcripts of youtube videos, summarize to tips the user 
+    needs to know in order to buy the right {product}. 
+    The tips are clear bullet points extracted from the transcript.
+    Avoid mentioning any advertising or promotional language. 
+    start each point with a star *
+    transcript : {text}
     tips : 
     """
 

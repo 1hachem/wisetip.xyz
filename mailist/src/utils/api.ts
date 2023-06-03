@@ -1,5 +1,5 @@
 import axios from "axios";
 
 export const api = axios.create({
-  baseURL: "http://wisetip.xyz/api",
+  baseURL: "https://www.wisetip.xyz/api",
 });

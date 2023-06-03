@@ -2,19 +2,26 @@ import { Typewriter } from "react-simple-typewriter";
 
 const Title = () => {
   return (
-    <div>
-      <h1 className="text-7xl">
-        How to choose{" "}
+    <div className="flex">
+      <h1 className="md:text-7xl text-xl">
+        How to choose the right{" "}
         <span className="text-blue-400">
-          {/* Style will be inherited from the parent element */}
           <Typewriter
             words={[
-              "the right sleeping bag ?",
-              "the best jump rope ?",
-              "a good fish ?",
-              "the right watch ?",
+              "sleeping bag ?",
+              "jump rope ?",
+              "fish ?",
+              "watch ?",
+              "camera ?",
+              "kitchen knife ?",
+              "hiking boots ?",
+              "backpack ?",
+              "umbrella ?",
+              "sunglasses ?",
+              "yoga mat ?",
+              "toothbrush ?",
             ]}
-            loop={3}
+            loop={false}
             cursor
             cursorStyle="_"
             typeSpeed={100}

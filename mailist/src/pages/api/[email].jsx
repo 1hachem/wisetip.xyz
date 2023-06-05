@@ -13,10 +13,12 @@ export default async function handler(req, res) {
     })
     .then(async () => {
       await prisma.$disconnect();
+      return res.status(200).json({ message: "Added to waitlist!!" });
     })
     .catch(async (e) => {
       console.error(e);
       await prisma.$disconnect();
       process.exit(1);
     });
+  return res.status(400).json({ messsage: "Ooops! something went wrong :/." });
 }

@@ -18,7 +18,8 @@ export default async function handler(req, res) {
     .catch(async (e) => {
       console.error(e);
       await prisma.$disconnect();
-      process.exit(1);
+      return res
+        .status(400)
+        .json({ messsage: "Ooops! something went wrong :/." });
     });
-  return res.status(400).json({ messsage: "Ooops! something went wrong :/." });
 }

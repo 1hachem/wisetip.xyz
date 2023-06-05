@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import * as Form from "@radix-ui/react-form";
-import { api } from "@/utils/api";
+import axios from "axios";
 
 const AddMail = () => {
   const [email, setEmail] = useState("");
@@ -16,7 +16,7 @@ const AddMail = () => {
 
   const handleSubmit = async (event: any) => {
     event.preventDefault(); //to prevent page refresh on submit
-    await api.post(`/${email}`).then(() => {
+    await axios.post(`/api/${email}`).then(() => {
       setIsSuccessful(true);
     });
   };

@@ -5,6 +5,7 @@ import axios from "axios";
 const AddMail = () => {
   const [email, setEmail] = useState("");
   const [isSuccessful, setIsSuccessful] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     setTimeout(() => setIsSuccessful(false), 3000);
@@ -15,10 +16,17 @@ const AddMail = () => {
   };
 
   const handleSubmit = async (event: any) => {
-    event.preventDefault(); //to prevent page refresh on submit
-    await axios.post(`/api/${email}`).then(() => {
-      setIsSuccessful(true);
-    });
+    event.preventDefault();
+    setIsLoading(true);
+    //to prevent page refresh on submit
+    await axios
+      .post(`/api/${email}`)
+      .then(() => {
+        setIsSuccessful(true);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   };
 
   return (
@@ -59,8 +67,11 @@ const AddMail = () => {
       </Form.Field>
       <Form.Submit asChild>
         <button
-          className="w-full text-xl hover:text-blue-400 py-3"
+          className={`w-full text-xl hover:text-blue-400 py-3 disabled:text-gray-500 ${
+            isLoading ? "cursor-wait" : ""
+          }`}
           type="submit"
+          disabled={isLoading}
         >
           join waitlist
         </button>

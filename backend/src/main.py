@@ -1,27 +1,25 @@
-from src.lm import inference
-from src.search import youtube_search
+from src.lm import Chain
+from src.search import youtube_search_product
 from src.transcribe import YoutubeTranscriber
 from src.utils.utils import save_text_file
 
 
-def search(product: str, max_results: int = 5) -> list[str]:
-    query = f"how to choose the right {product}"
-    top_videos = youtube_search(query, max_results=max_results)
-    return top_videos
-
-
 if __name__ == "__main__":
-    product = "studying desk"
+    product = "sleeping bag"
+
     print("searching ...")
-    top_videos = search(product, max_results=10)
+    top_videos = youtube_search_product(product, max_results=3)
+
     print("Transcribing videos ...")
     transcriber = YoutubeTranscriber()
-
     transcriptions = "\n".join(
         [transcriber.transcribe(top_video) for top_video in top_videos]
     )
     save_text_file(transcriptions, f"output/{product.replace(' ', '_')}.txt")
+
     print("Generating summary ...")
-    summary = inference(product, transcriptions)
+    chain = Chain()
+    summary = chain.chatgpt_inference(transcriptions)
+
     print("wise tips :")
     print(summary)

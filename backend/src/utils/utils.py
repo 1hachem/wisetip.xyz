@@ -4,7 +4,8 @@ from langchain.text_splitter import TokenTextSplitter
 def parse(text: str) -> list[str]:
     output = text.replace("\n", "")
     output = output.split("*")
-    return output[1:]
+    output = [_ for _ in output if _ != ""]
+    return output
 
 
 def text_split(text: str, chunk_size: int = 1000, chunk_overlap: int = 20):

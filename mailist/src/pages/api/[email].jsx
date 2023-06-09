@@ -1,11 +1,11 @@
 import { PrismaClient } from "@prisma/client";
-import { NextApiRequest, NextApiResponse } from "next";
+
 const prisma = new PrismaClient();
 
 export default async function handler(req, res) {
   const { email } = req.query;
 
-  const request = await prisma.email
+  await prisma.email
     .create({
       data: {
         email: email,

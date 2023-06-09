@@ -3,7 +3,6 @@ from src.search import youtube_search_product
 from src.transcribe import YoutubeTranscriber
 from src.utils.utils import save_text_file
 
-
 if __name__ == "__main__":
     product = "sleeping bag"
 

@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
-from youtube_transcript_api import YouTubeTranscriptApi
+
 import whisper
+from youtube_transcript_api import YouTubeTranscriptApi
 
 
 class Transcriber(ABC):

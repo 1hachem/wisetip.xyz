@@ -2,19 +2,15 @@ import os
 
 import dotenv
 import openai
-
-from langchain.prompts import PromptTemplate
-from langchain.chains.summarize import load_summarize_chain
-from langchain.docstore.document import Document
-
-from langchain.llms import OpenAI
-
-from src.utils.utils import text_split, parse
 from bardapi import Bard
-
+from langchain.chains.summarize import load_summarize_chain
 from langchain.chat_models import ChatOpenAI
-
+from langchain.docstore.document import Document
+from langchain.llms import OpenAI
+from langchain.prompts import PromptTemplate
 from langchain.schema import AIMessage, HumanMessage, SystemMessage
+
+from src.utils.utils import parse, text_split
 
 dotenv.load_dotenv()
 openai.api_key = os.getenv("OPENAI_API_KEY")

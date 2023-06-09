@@ -1,8 +1,9 @@
 # wisetip backend
 
 - Collects top k videos on youtube for how to choose the best [any thing].
-- Check if cc exists else transcribe videos using whisper.
-- Summarize transcriptions using gpt-3.
+- get youtube transcriptions for the all the videos (if it exists).
+- Summarize transcriptions using bard.
+- format summary using gpt-3.
 - Return results as a list of tips.
 
 ## Setup

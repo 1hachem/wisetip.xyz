@@ -1,9 +1,14 @@
 import Title from "@/components/Title";
 import AddMail from "@/components/AddMail";
+import Head from "next/head";
 
 export default function Home() {
   return (
     <>
+      <Head>
+        <title>Wisetip - We help you choose carefully your products.</title>
+        <link rel="icon" type="image/svg" href="/favicon.svg" />
+      </Head>
       <h1 className="absolute text-2xl top-3 left-3">
         wise<span className="text-blue-400">tip</span>
       </h1>

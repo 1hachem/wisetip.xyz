@@ -8,7 +8,7 @@ class Transcriber(ABC):
         pass
 
     @abstractmethod
-    def transcribe(url: str) -> str:
+    def transcribe(self) -> str:
         """turn video into text"""
 
 
@@ -27,11 +27,10 @@ class YoutubeTranscriber(Transcriber):
     def __init__(self, **kwargs: any):
         super().__init__(**kwargs)
 
-    def transcribe(self, video_id: str) -> str:
+    def transcribe(self, video_id: str) -> str | None:
         try:
             transcript = YouTubeTranscriptApi.get_transcript(video_id)
             transcript = [t["text"] for t in transcript]
+            return " ".join(transcript)
         except:
-            transcript = ""
-
-        return " ".join(transcript)
+            return None

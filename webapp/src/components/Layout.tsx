@@ -1,9 +1,22 @@
 import type { MetaHTMLAttributes, ReactNode } from 'react';
+import { Inter } from 'next/font/google';
+import localFont from 'next/font/local';
 
 import { DefaultSeo } from 'next-seo';
 
-import Header from './Header';
-import Footer from './Footer';
+import Header from '~/components/Header';
+import Footer from '~/components/Footer';
+import { cn } from '~/utils';
+
+const fontSans = Inter({
+  subsets: ['latin'],
+  variable: '--font-sans',
+});
+
+const fontHeading = localFont({
+  src: '../../public/fonts/CalSans-SemiBold.woff2',
+  variable: '--font-heading',
+});
 
 interface LayoutProps extends MetaHTMLAttributes<HTMLMetaElement> {
   children: ReactNode;
@@ -23,9 +36,15 @@ const Layout = ({ children, ...customMeta }: LayoutProps) => {
         title={meta.title}
         description={meta.description}
       />
-      <div className='container mx-auto flex flex-col w-screen min-h-screen justify-between gap-4'>
+      <div
+        className={cn(
+          'flex flex-col w-screen min-h-screen justify-between gap-4 font-sans antialiased',
+          fontSans.variable,
+          fontHeading.variable,
+        )}
+      >
         <Header />
-        <main className='flex-1'>{children}</main>
+        <main className='flex-1 container mx-auto'>{children}</main>
         <Footer />
       </div>
     </>

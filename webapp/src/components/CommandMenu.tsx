@@ -26,7 +26,6 @@ export function CommandMenu() {
   const results = api.item.search.useQuery({ text: debouncedValue });
   const router = useRouter();
   const [open, setOpen] = useState(false);
-  console.info(results.status);
 
   useEffect(() => {
     const down = (e: KeyboardEvent) => {
@@ -48,17 +47,11 @@ export function CommandMenu() {
   return (
     <>
       <Button
-        variant='outline'
-        className={cn(
-          'relative h-9 w-3/5 justify-start rounded-[0.5rem] text-sm text-muted-foreground sm:pr-12',
-        )}
+        className={cn('relative h-12 w-full md:w-1/4 text-sm sm:pr-12 text-primary-foreground')}
         onClick={() => setOpen(true)}
       >
-        <span className='hidden lg:inline-flex'>Search for items...</span>
+        <span className='hidden lg:inline-flex'>Search for items</span>
         <span className='inline-flex lg:hidden'>Search...</span>
-        <kbd className='pointer-events-none absolute right-1.5 top-2 hidden h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex'>
-          <span className='text-xs'>⌘</span>K
-        </kbd>
       </Button>
       <CommandDialog open={open} onOpenChange={setOpen}>
         <CommandInput

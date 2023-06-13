@@ -8,6 +8,11 @@ datasource db {
     url      = env("DATABASE_URL")
 }
 
+model Mail {
+    id              String  @id @default(cuid())
+    email           String  @unique
+}
+
 model Account {
     id                String  @id @default(cuid())
     userId            String

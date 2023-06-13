@@ -3,31 +3,30 @@ import { LogOut } from 'lucide-react';
 
 import { Avatar, AvatarFallback, AvatarImage } from '~/components/ui/Avatar';
 import { Button } from '~/components/ui/Button';
-import { useAuth } from '~/hooks/use-auth';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from './ui/DropdownMenu';
-import { CommandMenu } from './CommandMenu';
+} from '~/components/ui/DropdownMenu';
+import { Skeleton } from '~/components/ui/Skeleton';
+import { useAuth } from '~/hooks/use-auth';
 
 const Header = () => {
   const { signIn, signOut, status, session } = useAuth();
   return (
-    <header className='py-2 flex items-center justify-between'>
+    <header className='container mx-auto py-2 flex items-center justify-between border-b'>
       <div className='flex gap-2 items-center'>
         <Link href='/'>
-          <h1 className='font-bold md:text-xl'>wisetip</h1>
+          <h1 className='md:text-xl font-heading'>wisetip</h1>
         </Link>
       </div>
-      <CommandMenu />
 
       {status === 'unauthenticated' ? (
-        <Button variant='outline' size='sm' onClick={() => void signIn()}>
+        <Button size='sm' onClick={() => void signIn()}>
           Sign In
         </Button>
-      ) : (
+      ) : status === 'authenticated' ? (
         session?.user.image &&
         session.user.name && (
           <DropdownMenu>
@@ -47,6 +46,8 @@ const Header = () => {
             </DropdownMenuContent>
           </DropdownMenu>
         )
+      ) : (
+        <Skeleton className='rounded-full h-10 w-10 bg-slate-200' />
       )}
     </header>
   );

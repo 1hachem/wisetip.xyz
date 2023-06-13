@@ -7,8 +7,8 @@ import { SessionProvider } from 'next-auth/react';
 import '~/styles/globals.css';
 
 import Layout from '~/components/Layout';
-
 import { api } from '~/utils/api';
+import { Toaster } from '~/components/ui/Toaster';
 
 export type NextPageWithLayout = NextPage & {
   getLayout?: (_page: ReactElement) => ReactNode;
@@ -24,6 +24,7 @@ function CustomApp({ Component, pageProps: { session, ...pageProps } }: CustomAp
     ((page) => (
       <>
         <SessionProvider session={session}>
+          <Toaster />
           <Layout>{page}</Layout>
         </SessionProvider>
       </>

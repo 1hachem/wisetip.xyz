@@ -1,6 +1,8 @@
 import type { ReactElement, ReactNode } from 'react';
 import { type NextPage } from 'next';
 import { type AppProps } from 'next/app';
+import { type Session } from 'next-auth';
+import { SessionProvider } from 'next-auth/react';
 
 import '~/styles/globals.css';
 
@@ -12,16 +14,18 @@ export type NextPageWithLayout = NextPage & {
   getLayout?: (_page: ReactElement) => ReactNode;
 };
 
-interface CustomAppPropsI extends AppProps {
+interface CustomAppPropsI extends AppProps<{ session: Session | null }> {
   Component: NextPageWithLayout;
 }
 
-function CustomApp({ Component, pageProps }: CustomAppPropsI) {
+function CustomApp({ Component, pageProps: { session, ...pageProps } }: CustomAppPropsI) {
   const getLayout =
     Component.getLayout ??
     ((page) => (
       <>
-        <Layout>{page}</Layout>
+        <SessionProvider session={session}>
+          <Layout>{page}</Layout>
+        </SessionProvider>
       </>
     ));
 

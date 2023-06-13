@@ -36,7 +36,6 @@ const Examples = () => {
     },
     hidden: { opacity: 0 },
   };
-  console.info('Sleeping Bag'.split(''));
 
   return (
     <motion.div

@@ -1,6 +1,6 @@
 generator client {
     provider = "prisma-client-js"
-    previewFeatures = ["jsonProtocol"]
+    previewFeatures = ["fullTextSearch"]
 }
 
 datasource db {
@@ -50,4 +50,25 @@ model VerificationToken {
     expires    DateTime
 
     @@unique([identifier, token])
+}
+
+
+model Tip {
+    id          String  @id @default(uuid())
+    text        String
+    upvotes     Int     @default(0)
+    downvotes   Int     @default(0)
+    itemId      String
+    
+    item        Item    @relation(fields: [itemId], references: [id], onDelete: Cascade)
+}
+
+model Item {
+    id          String  @id @default(uuid())
+    name        String
+    description String?
+    created_at  DateTime    @default(now())
+    updated_at  DateTime    @updatedAt
+    
+    tips        Tip[]
 }

@@ -1,7 +1,6 @@
 import { useState } from 'react';
 
-import { ThumbsUp } from '~/components/Icons/ThumbsUp';
-import { ThumbsDown } from '~/components/Icons/ThumbsDown';
+import { ThumbsUp, ThumbsDown } from 'lucide-react';
 
 import { cn, formatCompactNumber } from '~/utils';
 

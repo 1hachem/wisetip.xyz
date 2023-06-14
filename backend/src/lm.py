@@ -8,7 +8,7 @@ from langchain.chat_models import ChatOpenAI
 from langchain.docstore.document import Document
 from langchain.llms import OpenAI
 from langchain.prompts import PromptTemplate
-from langchain.schema import AIMessage, HumanMessage, SystemMessage
+from langchain.schema import HumanMessage, SystemMessage
 
 from src.utils.utils import parse, text_split
 
@@ -26,7 +26,7 @@ class Chain:
     def chatgpt_inference(self, transcript: str) -> list[str]:
         """chatgpt inference, not working yet"""
         system_template = """
-        You are a helpful assistant that Summarize this text from the user into a list of tips. 
+        You are a helpful assistant that Summarize text into a list of tips. 
         The tips are clear bullet points extracted from the text.
         Avoid mentioning any advertising or promotional language. 
         start each tip with a star *

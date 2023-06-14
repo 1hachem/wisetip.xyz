@@ -7,14 +7,13 @@ import Examples from '~/components/Examples';
 
 const Home: NextPage = () => {
   return (
-    <div className='flex flex-col gap-12 mt-12 h-full'>
-      <div className='flex flex-col justify-center items-center gap-12 h-[50vh]'>
-        <h1 className='font-heading text-3xl md:text-7xl font-bold flex flex-col items-center text-center gap-2'>
+    <div className='mt-12 flex h-full flex-col gap-12'>
+      <div className='flex h-[50vh] flex-col items-center justify-center gap-12'>
+        <h1 className='flex flex-col items-center gap-2 text-center font-heading text-3xl font-bold md:text-7xl'>
           How to choose the right{' '}
-          <span className='text-[#025464]'>
+          <span className='text-blue-400'>
             <Typewriter
               words={[
-                'sleeping bag ?',
                 'jump rope ?',
                 'fish ?',
                 'watch ?',
@@ -37,7 +36,7 @@ const Home: NextPage = () => {
           </span>
         </h1>
         <motion.div
-          className='w-full flex justify-center'
+          className='flex w-full justify-center'
           initial={{
             opacity: 0,
             y: -20,
@@ -51,8 +50,23 @@ const Home: NextPage = () => {
         </motion.div>
       </div>
       <div className='space-y-8'>
-        <h2 className='text-xl md:text-5xl text-[#E57C23] font-heading'>
-          Let&apos;s see it in action...
+        <h2
+          className='font-heading text-xl md:text-5xl
+'
+        >
+          See it in action...
+        </h2>
+        <h2 className='font-heading text-xl md:text-4xl'>
+          How to choose the right{' '}
+          <span className='text-blue-400'>
+            <Typewriter
+              words={['sleeping bag ?']}
+              loop={1}
+              typeSpeed={100}
+              deleteSpeed={30}
+              delaySpeed={500}
+            />
+          </span>
         </h2>
         <Examples />
       </div>

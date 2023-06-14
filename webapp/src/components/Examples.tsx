@@ -40,11 +40,11 @@ const Examples = () => {
   return (
     <motion.div
       variants={list}
-      className='flex flex-col md:flex-row items-center justify-between p-4 bg-[#FD7B53] border border-b-4 border-r-4 border-primary rounded-lg shadow-lg'
+      className='flex flex-col items-center justify-between rounded-lg border border-b-4 border-r-4 border-primary p-4 shadow-lg md:flex-row'
       whileInView='visible'
     >
-      <motion.div variants={item} className='flex flex-col gap-2 w-full md:w-1/4'>
-        <div className='flex text-3xl font-heading' ref={ref}>
+      {/* <motion.div variants={item} className='flex w-full flex-col gap-2 md:w-1/4'>
+        <div className='flex font-heading text-3xl' ref={ref}>
           {'Sleeping Bag'.split('').map((letter, idx) => (
             <motion.h1
               key={idx}
@@ -57,17 +57,17 @@ const Examples = () => {
             </motion.h1>
           ))}
         </div>
-      </motion.div>
+      </motion.div> */}
       <motion.div
         variants={item}
-        className='flex flex-col gap-2 w-full'
+        className='flex w-full flex-col gap-2'
         initial='hidden'
         animate='visible'
       >
         {exampleTips.map((tip) => (
           <div key={tip.text}>
             <Tip text={tip.text} upvotes={tip.upvotes} />
-            <Separator className='bg-primary' />
+            {/* <Separator className='bg-primary' /> */}
           </div>
         ))}
       </motion.div>

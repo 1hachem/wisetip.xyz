@@ -8,7 +8,6 @@ const Title = () => {
         <span className='text-blue-400'>
           <Typewriter
             words={[
-              'sleeping bag ?',
               'jump rope ?',
               'fish ?',
               'watch ?',

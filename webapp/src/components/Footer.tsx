@@ -38,7 +38,7 @@ const Footer = () => {
           About Us
         </Link>
         <div className='flex flex-col gap-1 w-full md:w-2/5'>
-          <Label htmlFor='waitlist' className='text-sm text-slate-600'>
+          <Label htmlFor='waitlist' className='text-sm text-primary'>
             Request a demo
           </Label>
           <div className='flex gap-2'>
@@ -50,6 +50,7 @@ const Footer = () => {
               autoComplete='off'
               value={mail}
               onChange={(e) => setMail(e.target.value)}
+              className='border-primary'
             />
             <Button onClick={sendRequest} disabled={mail === '' || isLoading}>
               Request

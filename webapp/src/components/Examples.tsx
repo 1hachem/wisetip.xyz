@@ -1,7 +1,6 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 
-import { Separator } from '~/components/ui/Separator';
 import Tip from '~/components/Tip';
 import { exampleTips } from '~/config';
 
@@ -65,10 +64,7 @@ const Examples = () => {
         animate='visible'
       >
         {exampleTips.map((tip) => (
-          <div key={tip.text}>
-            <Tip text={tip.text} upvotes={tip.upvotes} />
-            <Separator className='bg-primary' />
-          </div>
+          <Tip text={tip.text} upvotes={tip.upvotes} key={tip.text} />
         ))}
       </motion.div>
     </motion.div>

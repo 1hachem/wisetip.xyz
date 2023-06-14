@@ -1,3 +1,4 @@
+import { TRPCError } from '@trpc/server';
 import { z } from 'zod';
 
 import { createTRPCRouter, publicProcedure } from '~/server/api/trpc';
@@ -10,6 +11,31 @@ export const itemsRouter = createTRPCRouter({
       },
       take: input,
     });
+  }),
+
+  getOne: publicProcedure.input(z.string()).query(({ ctx, input }) => {
+    return ctx.prisma.item
+      .findUnique({
+        where: {
+          id: input,
+        },
+        include: {
+          tips: {
+            orderBy: {
+              upvotes: 'desc',
+            },
+          },
+        },
+      })
+      .then((res) => res)
+      .catch((err) => {
+        throw new TRPCError({
+          code: 'INTERNAL_SERVER_ERROR',
+          message: 'Item not found!',
+          // optional: pass the original error to retain stack trace
+          cause: err,
+        });
+      });
   }),
 
   search: publicProcedure.input(z.object({ text: z.string() })).query(async ({ ctx, input }) => {

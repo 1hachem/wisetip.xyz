@@ -15,7 +15,13 @@ const Tip = ({ text, upvotes }: TipProps) => {
   const [numberOfUpvotes, setUpvotes] = useState(upvotes);
 
   return (
-    <div className='flex items-center justify-between gap-4 px-2 py-4 font-medium'>
+    <motion.div
+      layout
+      animate={{ opacity: 1 }}
+      initial={{ opacity: 0 }}
+      exit={{ opacity: 0 }}
+      className='flex items-center justify-between gap-4 px-2 py-4 font-medium'
+    >
       <p className='text-primary'>{text}</p>
       <div className='flex'>
         <div className='flex items-center gap-1 border py-1 border-primary rounded-tl-full rounded-bl-full pl-2 pr-2'>
@@ -54,7 +60,7 @@ const Tip = ({ text, upvotes }: TipProps) => {
           </motion.button>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

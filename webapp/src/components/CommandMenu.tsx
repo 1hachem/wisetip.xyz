@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
+import { Search } from 'lucide-react';
 
 import { cn } from '~/utils';
 import { Button } from '~/components/ui/Button';
@@ -50,6 +51,7 @@ export function CommandMenu() {
         className={cn('relative h-12 w-full md:w-1/4 text-sm sm:pr-12 text-primary-foreground')}
         onClick={() => setOpen(true)}
       >
+        <Search className='h-4 w-4 mr-2' />
         <span className='hidden lg:inline-flex'>Search for items</span>
         <span className='inline-flex lg:hidden'>Search...</span>
       </Button>

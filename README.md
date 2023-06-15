@@ -1,8 +1,8 @@
 # todo
 
-- fastAPI for backend
-- add we already got your email (you joined wait list again !)
-- add example to mail list
+- [x] fastAPI for backend
+- [x] add we already got your email (you joined wait list again !)
+- [x] add example to mail lis
 
 # specs
 

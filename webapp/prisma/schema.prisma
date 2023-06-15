@@ -45,8 +45,13 @@ model User {
     email         String?   @unique
     emailVerified DateTime?
     image         String?
+    
     accounts      Account[]
     sessions      Session[]
+    upvotes       Upvote[]
+    downvotes   Downvote[]
+    submitedTips    TipSubmission[]
+
 }
 
 model VerificationToken {
@@ -61,11 +66,11 @@ model VerificationToken {
 model Tip {
     id          String  @id @default(uuid())
     text        String
-    upvotes     Int     @default(0)
-    downvotes   Int     @default(0)
     itemId      String
     
     item        Item    @relation(fields: [itemId], references: [id], onDelete: Cascade)
+    upvotes     Upvote[]
+    downvotes   Downvote[]
 }
 
 model Item {
@@ -74,6 +79,38 @@ model Item {
     description String?
     created_at  DateTime    @default(now())
     updated_at  DateTime    @updatedAt
-    
+
     tips        Tip[]
+    submitedTips    TipSubmission[]
+}
+
+model Upvote {
+    tipId           String
+    userId          String
+
+    tip             Tip     @relation(fields: [tipId], references: [id], onDelete: Cascade)
+    user            User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+    @@id([tipId, userId])
+}
+
+model Downvote {
+    tipId           String
+    userId          String
+
+    tip             Tip     @relation(fields: [tipId], references: [id], onDelete: Cascade)
+    user            User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+    @@id([tipId, userId])
+}
+
+model TipSubmission {
+    id              String @id @default(uuid())
+    text            String
+    userId          String
+    itemId          String
+
+    user            User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+    item            Item    @relation(fields: [itemId], references: [id], onDelete: Cascade)
+
 }

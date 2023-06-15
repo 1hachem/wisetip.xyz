@@ -48,10 +48,10 @@ export function CommandMenu() {
   return (
     <>
       <Button
-        className={cn('relative h-12 w-full md:w-1/4 text-sm sm:pr-12 text-primary-foreground')}
+        className={cn('relative h-12 w-full text-sm text-primary-foreground sm:pr-12 md:w-1/4')}
         onClick={() => setOpen(true)}
       >
-        <Search className='h-4 w-4 mr-2' />
+        <Search className='mr-2 h-4 w-4' />
         <span className='hidden lg:inline-flex'>Search for items</span>
         <span className='inline-flex lg:hidden'>Search...</span>
       </Button>

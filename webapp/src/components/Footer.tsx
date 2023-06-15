@@ -32,12 +32,12 @@ const Footer = () => {
   };
 
   return (
-    <footer className='py-4 flex flex-col gap-4 items-center border border-t bg-[#E3F4F4]'>
-      <div className='container mx-auto flex flex-col gap-4 md:flex-row justify-between items-center'>
+    <footer className='flex flex-col items-center gap-4 border border-t bg-[#E3F4F4] py-4'>
+      <div className='container mx-auto flex flex-col items-center justify-between gap-4 md:flex-row'>
         <Link href='/about-us' className='underline'>
           About Us
         </Link>
-        <div className='flex flex-col gap-1 w-full md:w-2/5'>
+        <div className='flex w-full flex-col gap-1 md:w-2/5'>
           <Label htmlFor='waitlist' className='text-sm text-primary'>
             Request a demo
           </Label>

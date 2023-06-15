@@ -15,10 +15,10 @@ import { useAuth } from '~/hooks/use-auth';
 const Header = () => {
   const { signIn, signOut, status, session } = useAuth();
   return (
-    <header className='container mx-auto py-2 flex items-center justify-between border-b'>
-      <div className='flex gap-2 items-center'>
+    <header className='container mx-auto flex items-center justify-between border-b py-2'>
+      <div className='flex items-center gap-2'>
         <Link href='/'>
-          <h1 className='md:text-xl font-heading'>wisetip</h1>
+          <h1 className='font-heading md:text-xl'>wisetip</h1>
         </Link>
       </div>
 
@@ -38,16 +38,16 @@ const Header = () => {
             </DropdownMenuTrigger>
             <DropdownMenuContent>
               <DropdownMenuItem
-                className='flex items-center justify-between cursor-pointer'
+                className='flex cursor-pointer items-center justify-between'
                 onClick={() => void signOut()}
               >
-                Logout <LogOut className='w-4 h-4' />
+                Logout <LogOut className='h-4 w-4' />
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         )
       ) : (
-        <Skeleton className='rounded-full h-10 w-10 bg-slate-200' />
+        <Skeleton className='h-10 w-10 rounded-full bg-slate-200' />
       )}
     </header>
   );

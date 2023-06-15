@@ -38,13 +38,13 @@ const Layout = ({ children, ...customMeta }: LayoutProps) => {
       />
       <div
         className={cn(
-          'flex flex-col w-screen min-h-screen justify-between gap-4 font-sans antialiased',
+          'flex min-h-screen w-screen flex-col justify-between gap-4 font-sans antialiased',
           fontSans.variable,
           fontHeading.variable,
         )}
       >
         <Header />
-        <main className='flex-1 container mx-auto'>{children}</main>
+        <main className='container mx-auto flex-1'>{children}</main>
         <Footer />
       </div>
     </>

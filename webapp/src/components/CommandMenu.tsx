@@ -15,18 +15,20 @@ import {
 } from '~/components/ui/Command';
 import { api } from '~/utils/api';
 import { useDebounce } from '~/hooks/use-debounce';
+import { useAuth } from '~/hooks/use-auth';
 
 export function CommandMenu() {
   const items = api.item.getAll.useQuery();
   const [value, setValue] = useState('');
   const debouncedValue = useDebounce(value);
+  const results = api.item.search.useQuery({ text: debouncedValue });
+  const router = useRouter();
+  const [open, setOpen] = useState(false);
+  const { status } = useAuth();
 
   const handleChange = (search: string) => {
     setValue(search);
   };
-  const results = api.item.search.useQuery({ text: debouncedValue });
-  const router = useRouter();
-  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     const down = (e: KeyboardEvent) => {
@@ -49,7 +51,14 @@ export function CommandMenu() {
     <>
       <Button
         className={cn('relative h-12 w-full text-sm text-primary-foreground sm:pr-12 md:w-1/4')}
-        onClick={() => setOpen(true)}
+        onClick={() => {
+          if (status === 'authenticated') {
+            setOpen(true);
+          } else {
+            router.push('/api/auth/signin');
+          }
+        }}
+        disabled={status === 'loading'}
       >
         <Search className='mr-2 h-4 w-4' />
         <span className='hidden lg:inline-flex'>Search for items</span>

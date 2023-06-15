@@ -15,6 +15,10 @@ const ItemPage = () => {
   const total = { upvotes: 0, downvotes: 0 };
   const { session } = useAuth();
   const [isLoading, setIsLoading] = useState(false);
+  const { status } = useAuth();
+  if (status === 'unauthenticated') {
+    return router.push('/api/auth/signin');
+  }
 
   itemQuery.data?.tips.map((tip) => {
     total.upvotes += tip._count.upvotes;

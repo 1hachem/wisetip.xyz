@@ -1,12 +1,12 @@
-import type { Dispatch, SetStateAction } from 'react';
-import { ThumbsUp, ThumbsDown } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { ThumbsDown, ThumbsUp } from 'lucide-react';
+import { useRouter } from 'next/router';
+import type { Dispatch, SetStateAction } from 'react';
 
+import { useAuth } from '~/hooks/use-auth';
+import { useToast } from '~/hooks/use-toast';
 import { cn, formatCompactNumber } from '~/utils';
 import { api } from '~/utils/api';
-import { useAuth } from '~/hooks/use-auth';
-import { useRouter } from 'next/router';
-import { useToast } from '~/hooks/use-toast';
 
 interface TipProps {
   tipId: string;
@@ -22,7 +22,7 @@ const Tip = ({ text, upvotes, tipId, downvotes, upvoted, downvoted, setIsLoading
   const router = useRouter();
   const utils = api.useContext();
   const { toast } = useToast();
-  const { session } = useAuth();
+  const { session, status } = useAuth();
 
   const { mutateAsync: mutateUpvote } = api.item.upvote.useMutation();
 
@@ -33,6 +33,9 @@ const Tip = ({ text, upvotes, tipId, downvotes, upvoted, downvoted, setIsLoading
   const { mutateAsync: mutateRemoveDownvote } = api.item.removeDownvote.useMutation();
 
   const handleUpvote = async () => {
+    if (status === 'unauthenticated') {
+      return router.push('/api/auth/signin');
+    }
     setIsLoading(true);
     try {
       if (!upvoted && !downvoted) {
@@ -54,6 +57,9 @@ const Tip = ({ text, upvotes, tipId, downvotes, upvoted, downvoted, setIsLoading
   };
 
   const handleDownvote = async () => {
+    if (status === 'unauthenticated') {
+      return router.push('/api/auth/signin');
+    }
     setIsLoading(true);
     try {
       if (!downvoted && !upvoted) {

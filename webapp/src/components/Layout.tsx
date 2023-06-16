@@ -1,11 +1,10 @@
-import type { MetaHTMLAttributes, ReactNode } from 'react';
+import { DefaultSeo } from 'next-seo';
 import { Inter } from 'next/font/google';
 import localFont from 'next/font/local';
+import type { MetaHTMLAttributes, ReactNode } from 'react';
 
-import { DefaultSeo } from 'next-seo';
-
-import Header from '~/components/Header';
 import Footer from '~/components/Footer';
+import Header from '~/components/Header';
 import { cn } from '~/utils';
 
 const fontSans = Inter({

@@ -1,5 +1,4 @@
-import { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 import { exampleTips } from '~/config';
 import ExampleTip from './ExampleTip';
@@ -16,11 +15,6 @@ export const FADE_IN_ANIMATION_VARIANTS = {
 };
 
 const Examples = () => {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, {
-    once: true,
-  });
-
   const item = {
     visible: { opacity: 1, y: 0 },
     hidden: { opacity: 0, y: -10 },

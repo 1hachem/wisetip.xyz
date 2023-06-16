@@ -3,6 +3,15 @@
 @tailwind utilities;
 
 @layer base {
+  @font-face {
+    font-family: 'Inter';
+    src: url(../../public/fonts/inter-var-latin.woff2);
+  }
+
+  html {
+    font-family: 'Inter', 'sans-serif';
+  }
+
   :root {
     --background: 360 100% 100%;
     --foreground: 222.2 47.4% 11.2%;
@@ -71,6 +80,14 @@
 }
 
 @layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading;
+  }
   * {
     @apply border-border;
   }

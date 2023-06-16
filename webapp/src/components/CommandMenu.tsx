@@ -1,8 +1,7 @@
-import { useState, useEffect, useCallback } from 'react';
-import { useRouter } from 'next/navigation';
 import { Search } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import { useCallback, useEffect, useState } from 'react';
 
-import { cn } from '~/utils';
 import { Button } from '~/components/ui/Button';
 import {
   CommandDialog,
@@ -13,9 +12,10 @@ import {
   CommandList,
   CommandSeparator,
 } from '~/components/ui/Command';
-import { api } from '~/utils/api';
-import { useDebounce } from '~/hooks/use-debounce';
 import { useAuth } from '~/hooks/use-auth';
+import { useDebounce } from '~/hooks/use-debounce';
+import { cn } from '~/utils';
+import { api } from '~/utils/api';
 
 export function CommandMenu() {
   const items = api.item.getAll.useQuery();
@@ -50,19 +50,16 @@ export function CommandMenu() {
   return (
     <>
       <Button
-        className={cn('relative h-12 w-full text-sm text-primary-foreground sm:pr-12 md:w-1/4')}
+        className={cn(
+          'relative h-12 w-full justify-center text-sm text-primary-foreground md:w-1/4',
+        )}
         onClick={() => {
-          if (status === 'authenticated') {
-            setOpen(true);
-          } else {
-            router.push('/api/auth/signin');
-          }
+          setOpen(true);
         }}
         disabled={status === 'loading'}
       >
         <Search className='mr-2 h-4 w-4' />
-        <span className='hidden lg:inline-flex'>Search for items</span>
-        <span className='inline-flex lg:hidden'>Search...</span>
+        <span>Search for anything</span>
       </Button>
       <CommandDialog open={open} onOpenChange={setOpen}>
         <CommandInput

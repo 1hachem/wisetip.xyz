@@ -45,7 +45,7 @@ const ItemPage = () => {
   return (
     <>
       <NextSeo title={itemQuery.data?.name} />
-      <div className='container mx-auto flex flex-col gap-6'>
+      <div className='flex flex-col gap-6'>
         <Link
           href='/'
           className='flex w-fit items-center gap-1 rounded-md border border-b-4 border-r-4 border-primary px-2 py-1 font-semibold transition-all hover:bg-muted'

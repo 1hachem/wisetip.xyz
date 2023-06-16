@@ -9,8 +9,8 @@
 - [ ] populate database manually @hachem
 - [ ] add route to populate database automatically (from a jsonl containing items names)
 - [ ] add description endpoint fastapi @hachem
-- [ ] add payment popup and track coins/credits
-- [ ] vision/about us in the landing page
+- [x] add payment popup and track coins/credits
+- [x] vision/about us in the landing page
 
 chatgpt -> list items -> json -> node express -> for each item check if it exists if not -> fastapi -> tips and description -> populate database
 

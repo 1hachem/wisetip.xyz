@@ -39,24 +39,9 @@ const Examples = () => {
   return (
     <motion.div
       variants={list}
-      className='flex flex-col items-center justify-between rounded-lg border border-b-4 border-r-4 border-primary bg-[#FD7B53] p-4 shadow-lg md:flex-row'
+      className='flex flex-col items-center justify-between rounded-lg border border-b-4 border-r-4 border-primary bg-[#DDE6ED] p-4 shadow-lg md:flex-row'
       whileInView='visible'
     >
-      <motion.div variants={item} className='flex w-full flex-col gap-2 md:w-1/4'>
-        <div className='flex font-heading text-3xl' ref={ref}>
-          {'Sleeping Bag'.split('').map((letter, idx) => (
-            <motion.h1
-              key={idx}
-              variants={FADE_IN_ANIMATION_VARIANTS}
-              initial='initial'
-              animate={isInView ? 'animate' : 'initial'}
-              custom={idx}
-            >
-              {letter}
-            </motion.h1>
-          ))}
-        </div>
-      </motion.div>
       <motion.div
         variants={item}
         className='flex w-full flex-col gap-2'

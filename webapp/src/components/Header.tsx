@@ -18,7 +18,9 @@ const Header = () => {
     <header className='container mx-auto flex items-center justify-between border-b py-2'>
       <div className='flex items-center gap-2'>
         <Link href='/'>
-          <h1 className='font-heading md:text-xl'>wisetip</h1>
+          <h1 className='font-heading md:text-xl'>
+            wise<span className='text-[#19A7CE]'>tip</span>
+          </h1>
         </Link>
       </div>
 

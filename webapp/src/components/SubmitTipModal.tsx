@@ -76,7 +76,7 @@ const SubmitTipModal = ({ name }: SubmitTipModalProps) => {
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      <Button onClick={() => setIsOpen(true)} className='mx-auto w-full md:w-1/2'>
+      <Button onClick={() => setIsOpen(true)} className='mx-auto w-full bg-[#19A7CE] md:w-1/2'>
         Add new Tips for <span className='ml-1 font-semibold'>{name}</span>
         <Plus className='ml-2 h-4 w-4' />
       </Button>

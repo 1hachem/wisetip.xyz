@@ -93,8 +93,8 @@ const Tip = ({ text, upvotes, tipId, downvotes, upvoted, downvoted, setIsLoading
             className='outline-none'
           >
             <ThumbsUp
-              className={cn('h-4 w-4', {
-                'fill-primary stroke-primary': upvoted,
+              className={cn('h-4 w-4 hover:fill-[#19A7CE]', {
+                'fill-[#19A7CE] stroke-primary': upvoted,
               })}
             />
           </motion.button>
@@ -110,8 +110,8 @@ const Tip = ({ text, upvotes, tipId, downvotes, upvoted, downvoted, setIsLoading
             whileTap={{ scale: 1.1, y: 5 }}
           >
             <ThumbsDown
-              className={cn('h-4 w-4 hover:fill-primary hover:stroke-primary', {
-                'fill-primary stroke-primary': downvoted,
+              className={cn('h-4 w-4 hover:fill-[#FF6961]', {
+                'fill-[#FF6961] stroke-primary': downvoted,
               })}
             />
           </motion.button>

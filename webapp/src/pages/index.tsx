@@ -11,7 +11,7 @@ const Home: NextPage = () => {
       <div className='flex h-[50vh] flex-col items-center justify-center gap-12'>
         <h1 className='flex flex-col items-center gap-2 text-center font-heading text-3xl font-bold md:text-7xl'>
           How to choose the right{' '}
-          <span className='text-[#025464]'>
+          <span className='text-[#19A7CE]'>
             <Typewriter
               words={[
                 'sleeping bag ?',
@@ -49,12 +49,6 @@ const Home: NextPage = () => {
         >
           <CommandMenu />
         </motion.div>
-      </div>
-      <div className='space-y-8'>
-        <h2 className='font-heading text-xl text-[#E57C23] md:text-5xl'>
-          Let&apos;s see it in action...
-        </h2>
-        <Examples />
       </div>
     </div>
   );

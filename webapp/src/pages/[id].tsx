@@ -48,7 +48,7 @@ const ItemPage = () => {
       <div className='space-y-2'>
         <div>
           <h1 className='font-heading text-2xl md:text-5xl'>{itemQuery.data?.name}</h1>
-          <p className='text-xs font-semibold text-muted-foreground'>
+          <p className='text-xs font-semibold text-[#19A7CE]'>
             {itemQuery.data?._count.tips} tips • {total.upvotes} total upvotes • {total.downvotes}{' '}
             total downvotes
           </p>

@@ -32,7 +32,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className='flex flex-col items-center gap-4 border border-t bg-[#E3F4F4] py-4'>
+    <footer className='flex flex-col items-center gap-4 border border-t py-4'>
       <div className='container mx-auto flex flex-col items-center justify-between gap-4 md:flex-row'>
         <Link href='/about-us' className='underline'>
           About Us

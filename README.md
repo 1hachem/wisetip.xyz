@@ -3,9 +3,9 @@
 - [x] fastAPI for backend
 - [x] add we already got your email (you joined wait list again !)
 - [x] add example to mail lis
-- [ ] auth with google
+- [x] auth with google
 - [x] change ui colors @hachem
-- [ ] general feedback
+- [x] general feedback
 - [ ] populate database manually @hachem
 - [ ] add route to populate database automatically (from a jsonl containing items names)
 - [ ] add description endpoint fastapi @hachem

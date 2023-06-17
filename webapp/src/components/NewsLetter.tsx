@@ -33,7 +33,7 @@ const NewsLetter = () => {
   return (
     <div className='mx-auto flex flex-col items-center gap-4 rounded-lg border border-primary bg-white p-4 md:w-2/3'>
       <h2 className='text-center font-sans text-lg font-bold md:text-3xl'>
-        Join our newsletter to stay updated about latest features and changes.
+        Know about our newest products and features by joining our newsletter
       </h2>
       <div className='w-full md:w-2/3'>
         <Label htmlFor='waitlist' className='text-sm text-primary'>
@@ -51,9 +51,7 @@ const NewsLetter = () => {
               onChange={(e) => setMail(e.target.value)}
               className='border-primary'
             />
-            <p className='text-xs text-slate-400'>
-              Don&apos;t worry, we won&apos;t be spamming you. 👀
-            </p>
+            <p className='text-xs text-slate-400'>Don&apos;t worry, we won&apos;t spam you. 👀</p>
           </div>
           <Button onClick={sendRequest} disabled={mail === '' || isLoading}>
             <Send className='mr-2 h-4 w-4' />

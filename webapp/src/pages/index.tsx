@@ -114,12 +114,15 @@ const Home: NextPage = () => {
             animate={isInView1 ? 'animate' : 'hidden'}
             className='flex flex-col gap-4'
           >
-            <h3 className='text-3xl font-bold md:text-5xl'>Our Mission</h3>
+            <h3 className='text-3xl font-bold md:text-5xl'>What is wisetip</h3>
             <p className='text-sm leading-6 tracking-wide text-muted-foreground md:text-lg md:leading-7'>
+              <p className='font-bold'>
+                Wisetip helps you answer this question : what should I look for when buying
+                [anything] ?
+              </p>
               Useful tips around the internet are buried under a lot of noise (intros, stretched
-              content ...), this is mainly due to policies and recommendation algorithms of content
-              platforms. We value your time, memory and attention, all the tips you need are in one
-              place straight to the point.
+              content ...). We value your time, memory and attention, all the tips you need to
+              choose the right product are in one place straight to the point.
             </p>
           </motion.div>
           <motion.div
@@ -130,15 +133,10 @@ const Home: NextPage = () => {
           >
             <h3 className='text-3xl font-bold md:text-5xl'>About us</h3>
             <p className='text-sm leading-6 tracking-wide text-muted-foreground md:text-lg md:leading-7'>
-              We are a duo dedicated to bootstrapping valuable digital tools. Our mission is to
-              develop tools that safeguard and empower individuals, prioritizing the protection of
-              human vulnerabilities over exploiting them. Our approach is simple: we focus on
-              solving one problem at a time, adhering to the philosophy that less is more. In this
-              age of generative AI, we understand the significance of delivering concise yet
-              exceptional content. Our goal is to reverse engineer platforms like YouTube, Facebook,
-              Instagram, and create alternatives that enhance people&apos;s quality of life. We aim
-              to safeguard their attention, social connections, and spending habits, among other
-              aspects. To sustain our endeavors, we rely on donations and one-time payments.
+              We are a duo dedicated to bootstrapping useful digital tools, solving one problem at a
+              time, delivering high-quality content in the age of generative AI. With our solutions
+              our priority is to safeguard attention, nurture social connections, and promote
+              responsible spending. We generate profit from donations and one-time payments.
             </p>
           </motion.div>
           <motion.div

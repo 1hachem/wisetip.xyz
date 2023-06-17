@@ -91,9 +91,9 @@ const Header = () => {
                     <Button
                       onClick={() => {
                         toast({
-                          title: 'Thanks for your interest in our product',
+                          title: 'Coming soon!',
                           description:
-                            'Coming soon! Stay tuned for the ability to purchase coins and unlock enhanced features. 🚀',
+                            'Stay tuned for the ability to purchase coins and unlock enhanced features. 🚀',
                         });
                         mutate(session.user.id);
                       }}

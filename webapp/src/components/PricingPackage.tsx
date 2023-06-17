@@ -16,7 +16,7 @@ const PricingPackage = ({ price, selected, setSelected, idx }: PricingPackagePro
     <Button
       variant='outline'
       disabled
-      className={cn('justify-between opacity-50', {
+      className={cn('h-16 justify-between opacity-50', {
         'border-[#19A7CE] bg-[#19A7CE] text-white': selected,
       })}
       onClick={() => setSelected(idx)}

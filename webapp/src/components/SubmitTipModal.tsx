@@ -1,10 +1,10 @@
+import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
-import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm, type SubmitHandler } from 'react-hook-form';
 import * as z from 'zod';
-import { Plus } from 'lucide-react';
 
+import { Button } from '~/components/ui/Button';
 import {
   Dialog,
   DialogContent,
@@ -12,7 +12,6 @@ import {
   DialogHeader,
   DialogTitle,
 } from '~/components/ui/Dialog';
-import { Button } from '~/components/ui/Button';
 import {
   Form,
   FormControl,
@@ -22,9 +21,9 @@ import {
   FormMessage,
 } from '~/components/ui/Form';
 import { Input } from '~/components/ui/Input';
-import { api } from '~/utils/api';
 import { useAuth } from '~/hooks/use-auth';
 import { useToast } from '~/hooks/use-toast';
+import { api } from '~/utils/api';
 
 interface SubmitTipModalProps {
   name?: string;
@@ -77,8 +76,7 @@ const SubmitTipModal = ({ name }: SubmitTipModalProps) => {
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <Button onClick={() => setIsOpen(true)} className='mx-auto w-full bg-[#19A7CE] md:w-1/2'>
-        Add new Tips for <span className='ml-1 font-semibold'>{name}</span>
-        <Plus className='ml-2 h-4 w-4' />
+        Suggest new Tips for <span className='ml-1 font-semibold'>{name}</span>
       </Button>
       <DialogContent>
         <DialogHeader>

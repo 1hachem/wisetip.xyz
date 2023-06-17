@@ -27,7 +27,7 @@ const ItemPage = () => {
   if (itemQuery.status !== 'success' && !itemQuery.data) {
     // won't happen since we're using `fallback: "blocking"`
     return (
-      <div className='container mx-auto flex flex-col gap-4'>
+      <div className='flex flex-col gap-4'>
         <Skeleton className='h-12 w-1/2' />
         <Skeleton className='h-20 w-3/4' />
 

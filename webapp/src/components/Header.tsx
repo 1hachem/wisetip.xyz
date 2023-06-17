@@ -28,7 +28,7 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [selected, setSelected] = useState(0);
   const { toast } = useToast();
-  const { mutate } = api.interested.add.useMutation();
+  const { mutate } = api.utils.addInterested.useMutation();
   return (
     <div className='sticky top-0 z-50 bg-white'>
       <header className='container mx-auto flex items-center justify-between border-b py-4'>

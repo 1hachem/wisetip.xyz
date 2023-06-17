@@ -52,6 +52,7 @@ model User {
     upvotes       Upvote[]
     downvotes   Downvote[]
     submitedTips    TipSubmission[]
+    feedback        Feedback[]
     interesetd      Interested?
 }
 
@@ -116,8 +117,16 @@ model TipSubmission {
 }
 
 model Interested {
-    id              String @id  @default(uuid())
+    id              Int @id  @default(autoincrement())
     userId          String  @unique
 
     user            User @relation(fields: [userId], references: [id])
+}
+
+model Feedback {
+    id              Int @id  @default(autoincrement())
+    userId          String
+    feedback        String
+
+    user            User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }

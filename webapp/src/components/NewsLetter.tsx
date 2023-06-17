@@ -11,7 +11,7 @@ const NewsLetter = () => {
   const [mail, setMail] = useState('');
   const { toast } = useToast();
 
-  const { isLoading, mutateAsync } = api.mail.add.useMutation();
+  const { isLoading, mutateAsync } = api.utils.addMail.useMutation();
   const sendRequest = () => {
     mutateAsync(mail)
       .then(() => {

@@ -116,10 +116,10 @@ const Home: NextPage = () => {
           >
             <h3 className='text-3xl font-bold md:text-5xl'>What is wisetip</h3>
             <p className='text-sm leading-6 tracking-wide text-muted-foreground md:text-lg md:leading-7'>
-              <p className='font-bold'>
+              <span className='font-bold'>
                 Wisetip helps you answer this question : what should I look for when buying
                 [anything] ?
-              </p>
+              </span>
               Useful tips around the internet are buried under a lot of noise (intros, stretched
               content ...). We value your time, memory and attention, all the tips you need to
               choose the right product are in one place straight to the point.

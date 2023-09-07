@@ -63,9 +63,7 @@ const Header = () => {
                       <DialogDescription>
                         Unlock the full potential of wisetip with our exclusive coin packages! Every
                         purchase is a one-time payment that instantly credits your account. Get
-                        started by buying a few coins, or take advantage of our bulk options and
-                        save an incredible 50% off! Embrace the power of our tools while enjoying
-                        great savings. Invest in your digital journey today!
+                        started by buying a few coins.
                       </DialogDescription>
                     </DialogHeader>
                     <div className='my-4 flex flex-col gap-4'>

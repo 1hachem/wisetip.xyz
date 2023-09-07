@@ -116,9 +116,9 @@ const Home: NextPage = () => {
           >
             <h3 className='text-3xl font-bold md:text-5xl'>What is wisetip</h3>
             <p className='text-sm leading-6 tracking-wide text-muted-foreground md:text-lg md:leading-7'>
-              Useful tips choose the right product are buried under a lot of noise (intros,
-              stretched content ...). We value your time, memory and attention, all the tips you
-              need to are in one place straight to the point.
+              Useful tips to choose the right product are buried under a lot of noise (stretched
+              intros, ads, sponsored content ...). We value your time and attention span, with
+              wisetip all the tips you need are in one place, straight to the point. :)
             </p>
           </motion.div>
           <motion.div

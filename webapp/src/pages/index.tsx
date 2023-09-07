@@ -118,7 +118,7 @@ const Home: NextPage = () => {
             <p className='text-sm leading-6 tracking-wide text-muted-foreground md:text-lg md:leading-7'>
               Useful tips to choose the right product are buried under a lot of noise (stretched
               intros, ads, sponsored content ...). We value your time and attention span, with
-              wisetip all the tips you need are in one place, straight to the point. :)
+              wisetip all the tips you need are in one place, straight to the point.
             </p>
           </motion.div>
           <motion.div
@@ -156,6 +156,14 @@ const Home: NextPage = () => {
               text='Typescript machine...'
               image='/assets/team/1hachem.png'
               website='https://www.1hachem.xyz'
+            />
+            <MemberCard
+              name='Dhoha Tabouni'
+              githubLink='https://github.com/1dhoha/'
+              linkedinLink='https://www.linkedin.com/in/dhoha-tabouni/'
+              text='jnp.array([[1,2],[3,4]])'
+              image='/assets/team/1dhoha.jpeg'
+              website=''
             />
           </motion.div>
           <NewsLetter />

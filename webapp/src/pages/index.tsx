@@ -129,7 +129,7 @@ const Home: NextPage = () => {
           >
             <h3 className='text-3xl font-bold md:text-5xl'>About us</h3>
             <p className='text-sm leading-6 tracking-wide text-muted-foreground md:text-lg md:leading-7'>
-              We are a duo dedicated to bootstrapping useful digital tools, solving one problem at a
+              We are dedicated to bootstrapping useful digital tools, solving one problem at a
               time, delivering high-quality content in the age of generative AI. With our solutions
               our priority is to safeguard attention, nurture social connections, and promote
               responsible spending. We generate profit from donations and one-time payments.
